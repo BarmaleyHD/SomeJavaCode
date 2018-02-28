@@ -22,8 +22,9 @@ public class JavaFXApplication2 extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
-        
         stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setResizable(false);
         stage.show();
     }
 

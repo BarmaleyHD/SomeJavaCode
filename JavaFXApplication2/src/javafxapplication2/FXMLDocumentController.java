@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package javafxapplication2;
 
 import java.net.URL;
@@ -27,6 +23,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.shape.CubicCurveTo;
 import javafx.scene.shape.LineTo;
@@ -44,6 +41,8 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private Label lblLondon, lblRiga, lblParis, lblBerlin, lblMoscow, lblBrussel, lblCalgary;
+    @FXML
+    private Button button;
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
