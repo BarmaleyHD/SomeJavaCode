@@ -3,6 +3,7 @@ package Game;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import DisplayGame.Display;
 import Graphics.Sprite;
@@ -31,6 +32,7 @@ public class Game implements Runnable{
 	private Input input;
 	private TextureAtlas atlas;
 	private Player player;
+	public ArrayList<Shell> shells;
 	
 
 	public Game(){
@@ -40,7 +42,7 @@ public class Game implements Runnable{
 		input= new Input();
 		Display.addInputListener(input);
 		atlas = new TextureAtlas(ATLAS_FILE_NAME);
-		player = new Player(300, 300, 2, 3, atlas);
+		player = new Player(300, 300, 2, 2, atlas);
 		
 	}
 	
@@ -73,14 +75,22 @@ public class Game implements Runnable{
 	private void update(){
 		
 		player.update(input);
-				
+		shells = player.getShells();
+		for (int i = 0; i < shells.size(); i++) {
+			shells.get(i).update(input);
+		}
 	}
 	
-	private void render(){
-		
+	private void render(){		
 		Display.clear();
 		player.render(graphics);
-		//graphics.drawOval(x, y, width, height);
+		shells = player.getShells();
+		for (int i = 0; i < shells.size(); i++) {
+			if(shells.get(i).active) {
+			shells.get(i).render(graphics);
+			}
+		}
+		//graphics.drawOval(50, 50, 20, 30);
 		Display.swapBuffer();
 	}
 	

@@ -10,6 +10,7 @@ public abstract class Entity {
 	
 	protected float x;
 	protected float y;
+	protected boolean active;
 	
 	protected Entity(EntityType type, float x, float y){
 		this.type = type;
