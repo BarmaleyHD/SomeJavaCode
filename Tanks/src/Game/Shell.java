@@ -1,6 +1,7 @@
 package Game;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
@@ -55,7 +56,7 @@ public class Shell extends Entity {
 			super(EntityType.Player, x, y);			
 			super.active = true;
 			this.dir = dir;
-			System.out.println(dir);
+			Collision.addObject(this);
 			
 			// Default position on the start
 			status  = Status.SMALL;
@@ -108,7 +109,7 @@ public class Shell extends Entity {
 				explode = true;
 			}			
 			x = newX;
-			y = newY;			
+			y = newY;	
 		}		
 
 		@Override
@@ -132,5 +133,9 @@ public class Shell extends Entity {
 				spriteMap.get(status).render(g, x, y);
 				active = false;
 			}
+		}
+		
+		public Rectangle getBounds(){
+			return new Rectangle((int)x, (int)y, SPRITE_SCALE, SPRITE_SCALE);
 		}
 }

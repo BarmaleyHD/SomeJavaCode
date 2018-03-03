@@ -1,13 +1,10 @@
 package Game;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import DisplayGame.Display;
-import Graphics.Sprite;
-import Graphics.SpriteSheet;
+import Game.Level.Level;
 import Graphics.TextureAtlas;
 import IO.Input;
 import utils.Time;
@@ -33,6 +30,7 @@ public class Game implements Runnable{
 	private TextureAtlas atlas;
 	private Player player;
 	public ArrayList<Shell> shells;
+	private Level level;
 	
 
 	public Game(){
@@ -43,7 +41,7 @@ public class Game implements Runnable{
 		Display.addInputListener(input);
 		atlas = new TextureAtlas(ATLAS_FILE_NAME);
 		player = new Player(300, 300, 2, 2, atlas);
-		
+		level = new Level(atlas);
 	}
 	
 	public synchronized void start(){
@@ -73,7 +71,7 @@ public class Game implements Runnable{
 	}
 	
 	private void update(){
-		
+		level.update();
 		player.update(input);
 		shells = player.getShells();
 		for (int i = 0; i < shells.size(); i++) {
@@ -83,14 +81,18 @@ public class Game implements Runnable{
 	
 	private void render(){		
 		Display.clear();
+		level.render(graphics);
 		player.render(graphics);
 		shells = player.getShells();
 		for (int i = 0; i < shells.size(); i++) {
 			if(shells.get(i).active) {
 			shells.get(i).render(graphics);
+			}else{
+				shells.remove(i);
 			}
 		}
-		//graphics.drawOval(50, 50, 20, 30);
+		System.out.println(shells.size());
+		level.renderGrass(graphics);		
 		Display.swapBuffer();
 	}
 	
