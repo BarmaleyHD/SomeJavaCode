@@ -29,8 +29,10 @@ public class Level {
 	private List<Point> grassCords; 
 
 	public Level(TextureAtlas atlas) {
-		tileMap = new Integer[TILES_IN_WIDTH][TILES_IN_HEIGHT];
+		tileMap = new Integer[TILES_IN_WIDTH][TILES_IN_HEIGHT]; // Creating array that contains all tiles on the map		
+		
 		tiles = new HashMap<TileType, Tile>();
+		
 		tiles.put(TileType.BRICK, new Tile(atlas.cut(32 * TILE_SCALE, 0 * TILE_SCALE, TILE_SCALE, TILE_SCALE),
 				TILE_IN_GAME_SCALE, TileType.BRICK));
 		tiles.put(TileType.METAL, new Tile(atlas.cut(32 * TILE_SCALE, 2 * TILE_SCALE, TILE_SCALE, TILE_SCALE),
@@ -44,7 +46,8 @@ public class Level {
 		tiles.put(TileType.EMPTY, new Tile(atlas.cut(36 * TILE_SCALE, 6 * TILE_SCALE, TILE_SCALE, TILE_SCALE),
 				TILE_IN_GAME_SCALE, TileType.EMPTY));
 		
-		tileMap = Utils.levelParser();	
+		tileMap = Utils.levelParser(); // Writing tile values to create level
+		
 		grassCords = new ArrayList<Point>();
 		for (int i = 0; i < tileMap.length; i++){
 			for(int j = 0; j<tileMap[i].length; j++) {
@@ -78,5 +81,9 @@ public class Level {
 			tiles.get(TileType.GRASS).render(g, p.x, p.y);
 		}
 		}
+	
+	public Integer[][] getMap(){
+		return tileMap;
+	}
 
 }

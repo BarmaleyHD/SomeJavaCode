@@ -56,7 +56,6 @@ public class Shell extends Entity {
 			super(EntityType.Player, x, y);			
 			super.active = true;
 			this.dir = dir;
-			Collision.addObject(this);
 			
 			// Default position on the start
 			status  = Status.SMALL;

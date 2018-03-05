@@ -1,4 +1,4 @@
-package Game;
+ package Game;
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -71,12 +71,14 @@ public class Game implements Runnable{
 	}
 	
 	private void update(){
+		Collision.detectCollision(player.getBounds(), level.getMap());
 		level.update();
 		player.update(input);
 		shells = player.getShells();
 		for (int i = 0; i < shells.size(); i++) {
 			shells.get(i).update(input);
 		}
+		
 	}
 	
 	private void render(){		
@@ -91,7 +93,6 @@ public class Game implements Runnable{
 				shells.remove(i);
 			}
 		}
-		System.out.println(shells.size());
 		level.renderGrass(graphics);		
 		Display.swapBuffer();
 	}
