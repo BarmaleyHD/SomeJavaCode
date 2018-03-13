@@ -59,6 +59,37 @@ public class Customer implements Serializable {
 		this.custEmail = custEmail;
 		this.agentId = agentId;
 	}
+	
+	 public Customer(Customer another) {
+		this.customerId = another.customerId;
+		this.custFirstName = another.custFirstName;
+		this.custLastName = another.custLastName;
+		this.custAddress = another.custAddress;
+		this.custCity = another.custCity;
+		this.custProv = another.custProv;
+		this.custPostal = another.custPostal;
+		this.custCountry = another.custCountry;
+		this.custHomePhone = another.custHomePhone;
+		this.custBusPhone = another.custBusPhone;
+		this.custEmail = another.custEmail;
+		this.agentId = another.agentId;
+		  }
+	 
+	 public Customer Copy(Customer another) {
+		this.customerId = another.customerId;
+		this.custFirstName = another.custFirstName;
+		this.custLastName = another.custLastName;
+		this.custAddress = another.custAddress;
+		this.custCity = another.custCity;
+		this.custProv = another.custProv;
+		this.custPostal = another.custPostal;
+		this.custCountry = another.custCountry;
+		this.custHomePhone = another.custHomePhone;
+		this.custBusPhone = another.custBusPhone;
+		this.custEmail = another.custEmail;
+		this.agentId = another.agentId;
+		return this;
+		  }
 
 	public int getCustomerId() {
 		return this.customerId;
@@ -158,8 +189,12 @@ public class Customer implements Serializable {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return custFirstName + " " + custLastName+ ", " + custHomePhone;
+		String name  = custFirstName+ " " + custLastName  + ", ";
+		//return custFirstName + " " + custLastName+ ", " + custHomePhone;
+		return String.format("%-25s%s", name, custHomePhone);
+		
+		//return String.format("%.10s%.10s%.15s", "shortText", "shortText", "shortText");
+		
 	}
 	
 	

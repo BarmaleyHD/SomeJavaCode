@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.packagesController">
+   <children>
+      <Slider fx:id="sliderPrice" blockIncrement="500.0" layoutX="505.0" layoutY="443.0" majorTickUnit="500.0" max="10000.0" minorTickCount="0" prefHeight="17.0" prefWidth="199.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10000.0" />
+      <TextField fx:id="tfPackageValue" layoutX="334.0" layoutY="441.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="tfPackageName" layoutX="334.0" layoutY="371.0" />
+      <DatePicker fx:id="dpPackageDate" layoutX="334.0" layoutY="404.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="223.0" layoutY="375.0" text="Package Keyword:" AnchorPane.leftAnchor="223.0" />
+      <Label layoutX="222.0" layoutY="408.0" text="Package Start Date:" />
+      <Label layoutX="220.0" layoutY="445.0" text="Package Max Price:" />
+      <Button fx:id="btnPickPackage" disable="true" layoutX="843.0" layoutY="522.0" mnemonicParsing="false" onAction="#btnPickPackageOnClick" text="Select Package" AnchorPane.bottomAnchor="30.0" />
+      <Button fx:id="btnReset" layoutX="393.0" layoutY="515.0" mnemonicParsing="false" onAction="#btnResetOnClick" prefHeight="25.0" prefWidth="101.0" text="Reset Search" AnchorPane.bottomAnchor="30.0" />
+      <TableView fx:id="tvPackages" layoutX="14.0" layoutY="14.0" prefHeight="335.0" prefWidth="924.0" AnchorPane.leftAnchor="200.0">
+        <columns>
+            <TableColumn fx:id="clmID" prefWidth="55.0" text="ID" />
+            <TableColumn fx:id="clmName" prefWidth="162.0" text="Name" />
+          <TableColumn fx:id="clmStart" prefWidth="114.0" text="Start Date" />
+            <TableColumn fx:id="clmEnd" prefWidth="113.0" text="End Date" />
+            <TableColumn fx:id="clmDescription" prefWidth="274.0" text="Description" />
+            <TableColumn fx:id="clmBase" prefWidth="111.0" text="Base Price" />
+          <TableColumn fx:id="clmCommission" prefWidth="94.0" text="Commission" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="502.0" mnemonicParsing="false" onAction="#btnBackOnclick" text="&lt;&lt;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="220.0" />
+      <Label layoutX="529.0" layoutY="408.0" text="Package Start End:" />
+      <DatePicker fx:id="dpPackageEndDate" layoutX="633.0" layoutY="404.0" prefHeight="25.0" prefWidth="149.0" />
+   </children>
+</AnchorPane>

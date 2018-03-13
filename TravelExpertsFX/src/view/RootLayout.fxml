@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RootLayoutController">
+   <top>
+      <VBox prefHeight="84.0" prefWidth="1366.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="47.0" prefWidth="600.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fx:id="logoImage" fitHeight="30.0" fitWidth="33.0" layoutX="14.0" layoutY="-1.0">
+                     <image>
+                        <Image url="@../travel.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="Title" layoutX="53.0" prefHeight="28.0" prefWidth="85.0" style="-fx-font-weight: bold;" text="Easy Booking" />
+                  <ImageView fx:id="btnClose" fitHeight="18.0" fitWidth="16.0" layoutX="1336.0" layoutY="5.0" onMouseClicked="#closeApp">
+                     <image>
+                        <Image url="@../close.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <HBox prefHeight="49.0" prefWidth="600.0" style="-fx-background-color: white;">
+               <children>
+                  <Label fx:id="lblMain" alignment="BOTTOM_CENTER" prefHeight="45.0" prefWidth="123.0" text="Start &gt;" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblRegister" alignment="BOTTOM_CENTER" prefHeight="49.0" prefWidth="207.0" text="Register &gt;">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAccount" alignment="BOTTOM_CENTER" prefHeight="43.0" prefWidth="166.0" text="Account &gt;">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPackage" alignment="BOTTOM_CENTER" prefHeight="49.0" prefWidth="174.0" text="Package &gt;">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDetail" alignment="BOTTOM_CENTER" prefHeight="44.0" prefWidth="182.0" text="Detail &gt;">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblSummary" alignment="BOTTOM_CENTER" prefHeight="42.0" prefWidth="190.0" text="Summary &gt;">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblConfirmation" alignment="BOTTOM_CENTER" prefHeight="41.0" prefWidth="168.0" text="Confirmation ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label fx:id="progressBar" prefHeight="7.0" prefWidth="62.0" style="-fx-background-color: teal;">
+               <font>
+                  <Font size="4.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

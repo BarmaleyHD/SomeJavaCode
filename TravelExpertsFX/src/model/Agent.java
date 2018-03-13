@@ -116,7 +116,7 @@ public class Agent implements Serializable {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return agtFirstName + "," + agtBusPhone;
+		return agtFirstName + "";
 	}
 	
 	

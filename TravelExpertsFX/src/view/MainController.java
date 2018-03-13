@@ -22,19 +22,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import model.Agent;
+import javafx.scene.layout.BorderPane;
 import model.Customer;
 
 public class MainController {
 	
 	public static Customer selectedCustomer;
+	private Connection conn;	
+	private BorderPane rootLayout;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -56,47 +58,34 @@ public class MainController {
     
     @FXML
     void OnNext(ActionEvent event) throws IOException {
-            
-            AnchorPane root2 = (AnchorPane)FXMLLoader.load(getClass().getResource("test.fxml"));
-			Scene scene2 = new Scene(root2,400,400);
-			scene2.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-			Main.pstage.setScene(scene2);
-			Main.pstage.setTitle("Easy Booking");
-			Main.pstage.getIcons().add(new Image("/travel.png"));
-			Main.pstage.show();
-
-//    	Stage test = new Stage(); // Create new stage
-//    	
-//    	// Close the current view
-//    	
-//    	// New settings
-//    	AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("test.fxml"));
-//		Scene scene = new Scene(root,400,400);
-//		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-//		test.setScene(scene);
-//		test.setTitle("Easy Booking");
-//		test.getIcons().add(new Image("/travel.png"));
-//		test.show();
+    	if(selectedCustomer != null)
+    	{
+    		this.rootLayout = Main.rootLayout;
+            AnchorPane accountPage = (AnchorPane)FXMLLoader.load(getClass().getResource("Account.fxml"));
+			rootLayout.setCenter(accountPage);			
+    	}
     }
     
-    void initialize() {}
+   
     
-    private Connection conn;
-    
-    public void start() throws ClassNotFoundException, SQLException {
+    @FXML // This method is called by the FXMLLoader when initialization is complete
+    void initialize() throws ClassNotFoundException, SQLException {
         assert listView != null : "fx:id=\"listView\" was not injected: check your FXML file 'Main.fxml'.";
         assert txtName != null : "fx:id=\"txtName\" was not injected: check your FXML file 'Main.fxml'.";
         assert btnRegister != null : "fx:id=\"btnRegister\" was not injected: check your FXML file 'Main.fxml'.";
         assert btnNext != null : "fx:id=\"btnNext\" was not injected: check your FXML file 'Main.fxml'.";
-        
-        conn = new DBHelper().getConnection();
+
+        Main.rootController.onPage("lblMain");
+        conn = DBHelper.getConnection();
         buildList();  
+        btnNext.setDisable(true);
         
     	txtName.textProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println("textfield changed from " + oldValue + " to " + newValue);
+            //System.out.println("textfield changed from " + oldValue + " to " + newValue);
             try {
-            	conn = new DBHelper().getConnection();
+            	conn = DBHelper.getConnection();
 				filterList(newValue);
+				btnNext.setDisable(true);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -108,7 +97,8 @@ public class MainController {
     	
     	listView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-            	selectedCustomer = listView.getSelectionModel().getSelectedItem();            	    	    	
+            	selectedCustomer = listView.getSelectionModel().getSelectedItem();
+            	btnNext.setDisable(false);
             }
         });
     	

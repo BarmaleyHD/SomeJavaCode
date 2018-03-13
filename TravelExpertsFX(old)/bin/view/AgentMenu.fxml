@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="534.0" prefWidth="200.0" style="-fx-border-style: solid;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AgentMenuController">
+   <children>
+      <Pane layoutY="35.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #aab4c4;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="200.0" style="-fx-background-color: #3f577c;" text="Travel Experts" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="36.0" fitWidth="43.0" layoutY="-1.0">
+         <image>
+            <Image url="@../../../../../../AppData/Local/Temp/icons8_Beach_48px.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblUserName" layoutX="7.0" layoutY="35.0" prefHeight="36.0" prefWidth="186.0" text="Agent name" />
+      <Label fx:id="lblUserStatus" layoutX="8.0" layoutY="77.0" prefHeight="17.0" prefWidth="186.0" text="Status" />
+      <Label fx:id="lblUserEmail" layoutX="9.0" layoutY="100.0" prefHeight="17.0" prefWidth="186.0" text="Email" />
+      <JFXButton id="btnUserSettings" fx:id="btnUserSettings" buttonType="RAISED" layoutX="17.0" layoutY="125.0" onAction="#setTextAction" style="-fx-background-color: #7c838e;" text="Settings" />
+      <JFXButton fx:id="btnLogout" buttonType="RAISED" layoutX="84.0" layoutY="125.0" style="-fx-background-color: #7c838e;" text="Logout" />
+      <Label alignment="CENTER" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" rotate="90.0" text="Be nice to client!" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

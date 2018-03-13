@@ -1,1 +1,107 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.combo-box-base  
+{
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, white;
+    -fx-background-radius: 5, 5, 4, 3;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-padding: 0;
+}
+
+.combo-box-base:disabled
+ {
+	-fx-opacity: 1.0;
+}
+
+.combo-box-base .list-cell:disabled {
+  -fx-opacity: 1.0;
+  -fx-text-fill: darkgray;
+}
+
+/* 
+ * Metro style Push Button
+ * Author: Pedro Duque Vieira
+ * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
+ */
+.button {
+    -fx-padding: 5 10 5 10;   
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color:#0080ff;
+    -fx-font-size: 12pt;
+    -fx-text-fill: white;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover {
+  -fx-background-color: #0080ff;
+  -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
+}
+
+
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.list-cell 
+{
+    -fx-font-family: "monospace";
+}
+
+
+
+
+/* 
+ * 
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;    
+}
+
+.table-view .column-header {
+    -fx-background-color: black;
+}
+
+.table-row-cell:selected {
+   -fx-background-color: #008080; 
+}
+.table-row-cell:selected .text {
+       -fx-fill: white ;
+
+}
+
+.table-view:focused {
+  -fx-background-color: transparent,-fx-box-border,-fx-control-inner-background;
+  -fx-background-insets: -1.4, 0, 1;
+  -fx-background-radius: 1.4, 0, 0;
+  -fx-padding: 1; 
+}
+
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}
+* 
+* .button:focused {
+    -fx-border-color: white, white;
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30%);
+}
+* */

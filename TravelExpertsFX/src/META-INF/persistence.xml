@@ -21,6 +21,5 @@
 		<class>model.Reward</class>
 		<class>model.Suppliercontact</class>
 		<class>model.Supplier</class>
-		<class>model.Triptype</class>
 	</persistence-unit>
 </persistence>

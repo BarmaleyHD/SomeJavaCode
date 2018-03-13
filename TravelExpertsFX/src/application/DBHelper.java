@@ -8,10 +8,14 @@ public class DBHelper {
 	
 	static Connection con;
 
-	public Connection getConnection() throws ClassNotFoundException, SQLException {
+	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated constructor stub
-		Class.forName("com.mysql.jdbc.Driver");		
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/travelexperts_test", "root", "pass");		
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelexperts_test", "root", "pass");
+		
+		return con;
+		
 	}
 	
 	public static boolean checkConnection() {
