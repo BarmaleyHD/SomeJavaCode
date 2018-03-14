@@ -75,7 +75,7 @@ public class MainController {
         assert btnRegister != null : "fx:id=\"btnRegister\" was not injected: check your FXML file 'Main.fxml'.";
         assert btnNext != null : "fx:id=\"btnNext\" was not injected: check your FXML file 'Main.fxml'.";
 
-        Main.rootController.onPage("lblMain");
+       // Main.rootController.onPage("lblMain");
         conn = DBHelper.getConnection();
         buildList();  
         btnNext.setDisable(true);

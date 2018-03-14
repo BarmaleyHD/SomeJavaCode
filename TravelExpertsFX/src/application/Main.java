@@ -36,9 +36,7 @@ public class Main extends Application {
 			pstage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
-		}
-		//Login();
-			
+		}			
 	}
 	
 	public static void mainPage() {
@@ -66,7 +64,7 @@ public class Main extends Application {
 	/**
      * Initializes the root layout.
      */
-    public void initRootLayout() {
+    public static void initRootLayout() {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
@@ -76,7 +74,7 @@ public class Main extends Application {
             rootController = (RootLayoutController) loader.getController();
             // Show the scene containing the root layout.
             scene = new Scene(rootLayout,600,500);
-            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+            //scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             pstage.initStyle(StageStyle.UNDECORATED);
             pstage.setScene(scene);
             pstage.show();
@@ -89,7 +87,7 @@ public class Main extends Application {
     /**
      * Shows the main overview inside the root layout.
      */
-    public void showMain() {
+    public static void showMain() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();

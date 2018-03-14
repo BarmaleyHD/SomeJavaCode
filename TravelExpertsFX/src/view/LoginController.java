@@ -7,7 +7,8 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import application.DBHelper;
-import application.Main;
+import application.SceneManager;
+import database.AgentDB;
 //import application.SceneManager;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
@@ -25,7 +26,7 @@ import model.Agent;
 //import database.*;
 
 public class LoginController {
-	//SceneManager sceneManeger;	
+	SceneManager sceneManeger;	
 	boolean connected = false;
 	boolean loginPage = true;
 	Thread t;
@@ -128,20 +129,19 @@ public class LoginController {
     
     @FXML
     void ButtonLoginAction(ActionEvent event) throws ClassNotFoundException, SQLException {
-    	Main.mainPage();
-//    	if(connected) {
-//    		curAgent = AgentDB.getAgent(1);
-//    		sceneManeger = new SceneManager();
-//    		sceneManeger.authenticated(curAgent);
-//    		loginPage = false;
-//    		
-//    	} else {
-//    		Alert alert = new Alert(AlertType.INFORMATION);
-//        	alert.setTitle("No connection to databsase");
-//        	alert.setHeaderText("No connection");
-//        	alert.setContentText("You can't login because database isn't connected. If you can't resolve this problem contact example@example.com");
-//        	alert.showAndWait();
-//    	}
-//    	
+    	if(connected) {
+    		curAgent = AgentDB.getAgent(1);
+    		sceneManeger = new SceneManager();
+    		sceneManeger.authenticated(curAgent);
+    		loginPage = false;
+    		
+    	} else {
+    		Alert alert = new Alert(AlertType.INFORMATION);
+        	alert.setTitle("No connection to databsase");
+        	alert.setHeaderText("No connection");
+        	alert.setContentText("You can't login because database isn't connected. If you can't resolve this problem contact example@example.com");
+        	alert.showAndWait();
+    	}
+    	
     }
 }
